@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import AOS from "aos";
 
 @Component({
   selector: 'app-root',
@@ -8,9 +7,5 @@ import AOS from "aos";
 })
 export class AppComponent {
   title = 'rona-sp';
-
-  ngOnInit() {
-    AOS.init();
-  }
 
 }
