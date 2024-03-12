@@ -1,6 +1,8 @@
 <div [@flipState]="flip" (click)="click()">
+  <img src="/assets/images/left.png" class="left" alt="'"/>
   <img *ngIf="front" [src]="photo" alt="'"/>
   <div *ngIf="!front" class="back">
     <ng-content></ng-content>
   </div>
+  <img src="/assets/images/right.png" class="right" alt="'"/>
 </div>
