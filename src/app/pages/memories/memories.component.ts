@@ -75,6 +75,8 @@ export class MemoriesComponent {
       await this.imageLoad.preload(url);
       this.images.push(url);
     }
+    await this.imageLoad.preload('/assets/images/left.png');
+    await this.imageLoad.preload('/assets/images/right.png');
     this.isLoaded = true;
     console.log(this.isLoaded, this.isClicked);
     if (this.isClicked) {
