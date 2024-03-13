@@ -17,16 +17,14 @@ import { environment } from 'src/environments/environment';
   imports: [
     provideFirebaseApp(() =>
       initializeApp({
-        apiKey: process.env['API_KEY'] ?? environment.firebase.apiKey,
+        apiKey:  environment.firebase.apiKey,
         authDomain:
-          process.env['AUTH_DOMAIN'] ?? environment.firebase.authDomain,
-        projectId: process.env['PROJECT_ID'] ?? environment.firebase.projectId,
-        storageBucket:
-          process.env['STORAGE_BUCKET'] ?? environment.firebase.storageBucket,
+           environment.firebase.authDomain,
+        projectId:  environment.firebase.projectId,
+        storageBucket: environment.firebase.storageBucket,
         messagingSenderId:
-          process.env['MESSAGING_SENDER_ID'] ??
           environment.firebase.messagingSenderId,
-        appId: process.env['APP_ID'] ?? environment.firebase.appId,
+        appId: environment.firebase.appId,
       })
     ),
     provideAuth(() => getAuth()),
