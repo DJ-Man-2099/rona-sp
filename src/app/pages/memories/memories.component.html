@@ -1,44 +1,83 @@
-<div class="h-100 w-100 d-flex flex-column">
-  <app-photo-memory
-    photo="/assets/images/first.png"
-    data-aos="fade-left"
-    class="w-100"
+<div
+  *ngIf="!isLoaded"
+  class="h-100 w-100 d-flex flex-column align-items-center justify-content-center bg-info"
+>
+  <p
+    style="
+      margin-top: 0cm;
+      margin-right: 0cm;
+      margin-bottom: 8pt;
+      margin-left: 0cm;
+      font-size: 11pt;
+      font-family: 'Aptos', sans-serif;
+      text-align: center;
+      line-height: 150%;
+    "
   >
+    <strong
+      ><u
+        ><span style="font-size: 24px; line-height: 150%">How to Use:</span></u
+      ></strong
+    >
+  </p>
+  <ol style="list-style-type: decimal; margin-left: 0cmundefined">
+    <li>
+      <strong
+        ><span style="line-height: 150%">Tap on Image to Flip</span></strong
+      >
+    </li>
+    <li>
+      <strong
+        ><span style="line-height: 150%">Scroll for more images</span></strong
+      >
+    </li>
+  </ol>
+  <p
+    style="
+      margin-top: 0cm;
+      margin-right: 0cm;
+      margin-bottom: 8pt;
+      margin-left: 0cm;
+      font-size: 11pt;
+      font-family: 'Aptos', sans-serif;
+      text-align: center;
+      line-height: 150%;
+    "
+  >
+    <strong
+      ><span style="font-size: 24px; line-height: 150%"
+        >LOADING&hellip;..</span
+      ></strong
+    >
+  </p>
+  <div class="lds-roller">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<div *ngIf="isLoaded" class="h-100 w-100 d-flex flex-column">
+  <app-photo-memory [photo]="images[0]" data-aos="fade-left" class="w-100">
     <app-msg-1></app-msg-1>
   </app-photo-memory>
-  <app-photo-memory
-    photo="/assets/images/second.png"
-    data-aos="fade-right"
-    class="w-100"
-  >
+  <app-photo-memory [photo]="images[1]" data-aos="fade-right" class="w-100">
     <app-msg-2></app-msg-2>
   </app-photo-memory>
-  <app-photo-memory
-    photo="/assets/images/third.png"
-    data-aos="fade-left"
-    class="w-100"
-  >
+  <app-photo-memory [photo]="images[2]" data-aos="fade-left" class="w-100">
     <app-msg-3></app-msg-3>
   </app-photo-memory>
-  <app-photo-memory
-    photo="/assets/images/fourth.png"
-    data-aos="fade-right"
-    class="w-100"
-  >
+  <app-photo-memory [photo]="images[3]" data-aos="fade-right" class="w-100">
     <app-msg-4></app-msg-4>
   </app-photo-memory>
-  <app-photo-memory
-    photo="/assets/images/final.png"
-    data-aos="fade-left"
-    class="w-100"
-  >
+  <app-photo-memory [photo]="images[4]" data-aos="fade-left" class="w-100">
     <app-msg-5></app-msg-5>
   </app-photo-memory>
-  <app-photo-memory
-    photo="/assets/images/finalfinal.jpg"
-    data-aos="fade-left"
-    class="w-100"
-  >
+  <app-photo-memory [photo]="images[5]" data-aos="fade-right" class="w-100">
     <app-msg-6></app-msg-6>
   </app-photo-memory>
 </div>

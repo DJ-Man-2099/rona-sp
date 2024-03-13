@@ -1,0 +1,47 @@
+[debug] [2024-03-13T00:13:18.597Z] ----------------------------------------------------------------------
+[debug] [2024-03-13T00:13:18.605Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\david\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-03-13T00:13:18.605Z] CLI Version:   13.4.1
+[debug] [2024-03-13T00:13:18.606Z] Platform:      win32
+[debug] [2024-03-13T00:13:18.606Z] Node Version:  v20.9.0
+[debug] [2024-03-13T00:13:18.607Z] Time:          Wed Mar 13 2024 02:13:18 GMT+0200 (Eastern European Standard Time)
+[debug] [2024-03-13T00:13:18.607Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-03-13T00:13:18.620Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-13T00:13:18.620Z] > authorizing via signed-in user (daviddawoud022@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\VsCode\Javascript\Angular\rona-sp
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-03-13T00:13:50.253Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-03-13T00:13:51.301Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-03-13T00:13:51.302Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project rona-sp (rona-sp) 
+[info] 
+=== Hosting Setup
+[debug] [2024-03-13T00:13:54.330Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/rona-sp [none]
+[debug] [2024-03-13T00:13:54.583Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/rona-sp 200
+[debug] [2024-03-13T00:13:54.584Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/rona-sp {"projectId":"rona-sp","projectNumber":"657318687141","displayName":"rona-sp","name":"projects/rona-sp","resources":{"hostingSite":"rona-sp"},"state":"ACTIVE","etag":"1_63c0bcd9-e224-4a7e-896f-dc3114a01206"}
+[debug] [2024-03-13T00:14:10.713Z] SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at findDependency (C:\Users\david\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\utils.js:188:23)
+    at getAstroVersion (C:\Users\david\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\astro\utils.js:39:45)
+    at discover (C:\Users\david\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\astro\index.js:17:49)
+    at discover (C:\Users\david\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js:47:38)
+    at async doSetup (C:\Users\david\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\features\hosting\index.js:54:11)
+    at async init (C:\Users\david\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\index.js:37:9)
+[error] 
+[error] Error: An unexpected error has occurred.

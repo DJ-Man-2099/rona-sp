@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  inject,
+} from '@angular/core';
 import * as Aos from 'aos';
 import { PhotoMemoryComponent } from './components/photo-memory/photo-memory.component';
 import { Msg1Component } from './components/msg-1/msg-1.component';
@@ -8,13 +13,17 @@ import { Msg3Component } from './components/msg-3/msg-3.component';
 import { Msg4Component } from './components/msg-4/msg-4.component';
 import { Msg5Component } from './components/msg-5/msg-5.component';
 import { Msg6Component } from './components/msg-6/msg-6.component';
+import { Storage, ref, getDownloadURL } from '@angular/fire/storage';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+// import { env } from 'process';
+import { environment } from 'src/environments/environment';
+import { ImagePreloadService } from './services/image-loader.service';
 
 @Component({
   selector: 'app-memories',
   standalone: true,
   templateUrl: './memories.component.html',
   styleUrls: ['./memories.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     PhotoMemoryComponent,
@@ -27,10 +36,44 @@ import { Msg6Component } from './components/msg-6/msg-6.component';
   ],
 })
 export class MemoriesComponent {
+  private changeRef: ChangeDetectorRef = inject(ChangeDetectorRef);
+  private imageLoad: ImagePreloadService = inject(ImagePreloadService);
+  private storage: Storage = inject(Storage);
+  private auth: Auth = inject(Auth);
+  private list: string[] = [
+    'first.png',
+    'second.png',
+    'third.png',
+    'fourth.png',
+    'final.png',
+    'finalfinal.jpg',
+  ];
+  public isLoaded: boolean = false;
+  public images: string[] = [];
+
   ngOnInit() {
     Aos.init({
       disable: false,
       mirror: true,
     });
+    this.loadImages();
+  }
+
+  private async loadImages() {
+    const cred = await signInWithEmailAndPassword(
+      this.auth,
+      /* env['username'] ?? */ environment.user.username,
+      /* env['password'] ?? */ environment.user.password
+    );
+    console.log(cred);
+    for (const image of this.list) {
+      const storageRef = ref(this.storage, `/assets/images/${image}`);
+      const url = await getDownloadURL(storageRef);
+      await this.imageLoad.preload(url);
+      this.images.push(url);
+    }
+    this.isLoaded = true;
+    this.changeRef.detectChanges();
+    console.log(this.images);
   }
 }
