@@ -9,9 +9,6 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
-import * as dotenv from 'dotenv';
-
-dotenv.config();
 
 @NgModule({
   declarations: [AppComponent],
