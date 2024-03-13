@@ -65,8 +65,8 @@ export class MemoriesComponent {
   private async loadImages() {
     const cred = await signInWithEmailAndPassword(
       this.auth,
-      /* env['username'] ?? */ environment.user.username,
-      /* env['password'] ?? */ environment.user.password
+      process.env['EMAIL'] ?? environment.user.username,
+      process.env['PASSWORD'] ?? environment.user.password
     );
     console.log(cred);
     for (const image of this.list) {
