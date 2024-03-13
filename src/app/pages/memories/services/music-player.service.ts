@@ -6,9 +6,12 @@ import { Injectable } from '@angular/core';
 export class MusicPlayerService {
   private audio = new Audio();
 
-  play(url: string) {
+  preload(url: string) {
     this.audio.src = url;
     this.audio.load();
+  }
+
+  play() {
     this.audio.play();
   }
 

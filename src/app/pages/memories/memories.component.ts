@@ -66,7 +66,7 @@ export class MemoriesComponent {
     const cred = await signInWithEmailAndPassword(
       this.auth,
       environment.user.username,
-       environment.user.password
+      environment.user.password
     );
     console.log(cred);
     for (const image of this.list) {
@@ -77,20 +77,24 @@ export class MemoriesComponent {
     }
     await this.imageLoad.preload('/assets/images/left.png');
     await this.imageLoad.preload('/assets/images/right.png');
+    await this.musicLoad.preload('/assets/sounds/sound.mp3');
     this.isLoaded = true;
     console.log(this.isLoaded, this.isClicked);
     if (this.isClicked) {
       this.changeRef.detectChanges();
-      this.musicLoad.play('/assets/sounds/sound.mp3');
+      this.musicLoad.play();
     }
   }
 
-  click() {
+  async click() {
     this.isClicked = true;
     console.log(this.isLoaded, this.isClicked);
+    await this.imageLoad.preload('/assets/images/left.png');
+    await this.imageLoad.preload('/assets/images/right.png');
+    await this.musicLoad.preload('/assets/sounds/sound.mp3');
     if (this.isLoaded) {
       this.changeRef.detectChanges();
-      this.musicLoad.play('/assets/sounds/sound.mp3');
+      this.musicLoad.play();
     }
   }
 }
