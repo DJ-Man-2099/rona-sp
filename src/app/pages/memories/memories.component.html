@@ -1,5 +1,5 @@
 <div
-  *ngIf="!isLoaded"
+  *ngIf="!isLoaded || !isClicked"
   class="h-100 w-100 d-flex flex-column align-items-center justify-content-center bg-info"
 >
   <p
@@ -23,6 +23,11 @@
   <ol style="list-style-type: decimal; margin-left: 0cmundefined">
     <li>
       <strong
+        ><span style="line-height: 150%">Flip Mobile to show Horizontally</span></strong
+      >
+    </li>
+    <li>
+      <strong
         ><span style="line-height: 150%">Tap on Image to Flip</span></strong
       >
     </li>
@@ -44,13 +49,21 @@
       line-height: 150%;
     "
   >
-    <strong
+    <button
+      class="btn btn-primary d-block"
+      *ngIf="!isClicked"
+      type="button"
+      (click)="click()"
+    >
+      Press to Start
+    </button>
+    <strong *ngIf="!isLoaded"
       ><span style="font-size: 24px; line-height: 150%"
         >LOADING&hellip;..</span
       ></strong
     >
   </p>
-  <div class="lds-roller">
+  <div *ngIf="!isLoaded" class="lds-roller">
     <div></div>
     <div></div>
     <div></div>
@@ -61,7 +74,7 @@
     <div></div>
   </div>
 </div>
-<div *ngIf="isLoaded" class="h-100 w-100 d-flex flex-column">
+<div *ngIf="isLoaded && isClicked" class="h-100 w-100 d-flex flex-column">
   <app-photo-memory [photo]="images[0]" data-aos="fade-left" class="w-100">
     <app-msg-1></app-msg-1>
   </app-photo-memory>

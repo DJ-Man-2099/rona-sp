@@ -18,6 +18,7 @@ import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 // import { env } from 'process';
 import { environment } from 'src/environments/environment';
 import { ImagePreloadService } from './services/image-loader.service';
+import { MusicPlayerService } from './services/music-player.service';
 
 @Component({
   selector: 'app-memories',
@@ -38,6 +39,7 @@ import { ImagePreloadService } from './services/image-loader.service';
 export class MemoriesComponent {
   private changeRef: ChangeDetectorRef = inject(ChangeDetectorRef);
   private imageLoad: ImagePreloadService = inject(ImagePreloadService);
+  private musicLoad: MusicPlayerService = inject(MusicPlayerService);
   private storage: Storage = inject(Storage);
   private auth: Auth = inject(Auth);
   private list: string[] = [
@@ -49,6 +51,7 @@ export class MemoriesComponent {
     'finalfinal.jpg',
   ];
   public isLoaded: boolean = false;
+  public isClicked: boolean = false;
   public images: string[] = [];
 
   ngOnInit() {
@@ -73,7 +76,19 @@ export class MemoriesComponent {
       this.images.push(url);
     }
     this.isLoaded = true;
-    this.changeRef.detectChanges();
-    console.log(this.images);
+    console.log(this.isLoaded, this.isClicked);
+    if (this.isClicked) {
+      this.changeRef.detectChanges();
+      this.musicLoad.play('/assets/sounds/sound.mp3');
+    }
+  }
+
+  click() {
+    this.isClicked = true;
+    console.log(this.isLoaded, this.isClicked);
+    if (this.isLoaded) {
+      this.changeRef.detectChanges();
+      this.musicLoad.play('/assets/sounds/sound.mp3');
+    }
   }
 }
