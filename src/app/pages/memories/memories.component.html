@@ -8,7 +8,7 @@
       margin-right: 0cm;
       margin-bottom: 8pt;
       margin-left: 0cm;
-      font-size: 11pt;
+      font-size:1rem;
       font-family: 'Aptos', sans-serif;
       text-align: center;
       line-height: 150%;
@@ -16,7 +16,7 @@
   >
     <strong
       ><u
-        ><span style="font-size: 24px; line-height: 150%">How to Use:</span></u
+        ><span style="font-size:1rem; line-height: 150%">How to Use:</span></u
       ></strong
     >
   </p>
@@ -43,7 +43,7 @@
       margin-right: 0cm;
       margin-bottom: 8pt;
       margin-left: 0cm;
-      font-size: 11pt;
+      font-size:1rem;
       font-family: 'Aptos', sans-serif;
       text-align: center;
       line-height: 150%;
@@ -58,7 +58,7 @@
       Press to Start
     </button>
     <strong *ngIf="!isLoaded"
-      ><span style="font-size: 24px; line-height: 150%"
+      ><span style="font-size:1rem; line-height: 150%"
         >LOADING&hellip;..</span
       ></strong
     >
@@ -76,7 +76,7 @@
 </div>
 <div *ngIf="isLoaded && isClicked" class="h-100 w-100 d-flex flex-column">
   <app-photo-memory [photo]="images[0]" data-aos="fade-left" class="w-100">
-    <app-msg-1></app-msg-1>
+    <app-msg-1 ></app-msg-1>
   </app-photo-memory>
   <app-photo-memory [photo]="images[1]" data-aos="fade-right" class="w-100">
     <app-msg-2></app-msg-2>
@@ -91,6 +91,6 @@
     <app-msg-5></app-msg-5>
   </app-photo-memory>
   <app-photo-memory [photo]="images[5]" data-aos="fade-right" class="w-100">
-    <app-msg-6></app-msg-6>
+    <app-msg-6 style="font-size: 1.5rem !important;"></app-msg-6>
   </app-photo-memory>
 </div>
